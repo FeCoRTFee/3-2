@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 class Matrix : BasicArray
 {
     int[,] mas;
+    public Matrix(int n = 3) : base(n)
+    {
+        mas = new int[number_of_cells,number_of_cells];
+
+    }
     public override void Input()
     {
         Console.WriteLine("Enter rows number");
@@ -50,6 +55,29 @@ class Matrix : BasicArray
 
         }
         Console.WriteLine();
+    }
+
+    public override void Random()
+    {
+        Random rnd = new Random();
+        Console.WriteLine("Enter rows number");
+        int rows = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter columns number");
+        int columns = Convert.ToInt32(Console.ReadLine());
+        mas = new int[rows, columns];
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                mas[i, j] = rnd.Next(-100, 100);
+            }
+
+        }
+    }
+
+    public override void Recreate(int n)
+    {
+        mas = new int[number_of_cells, number_of_cells];
     }
 }
 

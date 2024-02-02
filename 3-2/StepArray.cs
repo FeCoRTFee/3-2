@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 class StepArray : BasicArray
 {
     int[][] mas;
+    public StepArray(int n = 3) : base(n)
+    {
+        mas = new int[number_of_cells][];
+
+    }
     public override void Input()
     {
         Console.WriteLine("Enter rows number");
@@ -56,6 +61,29 @@ class StepArray : BasicArray
             }
             Console.WriteLine();
         }
+    }
+
+    public override void Random()
+    {
+        Console.WriteLine("Enter rows number");
+        int rows = Convert.ToInt32(Console.ReadLine());
+        int[][] mas = new int[rows][];
+        Random rnd = new Random();
+        for (int i = 0; i < rows; i++)
+        {
+            int columns = rnd.Next(1, 10);
+            int[] smas = new int[columns];
+            for (int j = 0; j < smas.Length; j++)
+            {
+                smas[j] = rnd.Next(-1001, 1001);
+            }
+            mas[i] = smas;
+        }
+    }
+
+    public override void Recreate(int n)
+    {
+        mas = new int[number_of_cells][];
     }
 }
 
